@@ -30,5 +30,5 @@ Users can explore destinations, read travel stories, register as guides, and vie
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/<your-username>/<repo-name>.git
+   git clone  https://github.com/dilshandevxx/travel-website.git
    ```
