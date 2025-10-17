@@ -32,20 +32,3 @@ Users can explore destinations, read travel stories, register as guides, and vie
    ```bash
    git clone https://github.com/<your-username>/<repo-name>.git
    ```
-
-travel-website/
-│
-├── public/
-│ ├── css/
-│ ├── js/
-│ ├── images/
-│ └── html pages (frontend)
-│
-├── routes/ (backend APIs)
-├── controllers/
-├── models/
-├── db/
-│ └── connection.js
-│
-├── server.js
-└── package.json
