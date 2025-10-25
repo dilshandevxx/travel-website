@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PearlGuide</title>
+    <link rel="stylesheet" href="homestyle.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <!--------------Navigation bar---------------->
+
+    <nav class="navbar navbar-expand-lg fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <img src="Assets/Logo.png" alt="Logo" class="navbar-logo" />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Home</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+              >
+                Destinations
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#byCity">By City</a></li>
+                <li>
+                  <a class="dropdown-item" href="#byCategory">By Category</a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Hotels & Restaurants</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Find a Guide</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Blog/Stories</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About us</a>
+            </li>
+          </ul>
+          <div class="d-flex align-items-center gap-3">
+            <div class="search-box">
+              <input type="text" class="form-control" placeholder="Search" />
+              <i class="fas fa-search"></i>
+            </div>
+            <div class="user-section">
+              <i class="fas fa-user"></i>
+              <span>User Name</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-------------Hero section --------------->
+
+    <section class="hero-section">
+      <h1>Welcome to</h1>
+      <h1>Sri Lanka</h1>
+      <p>"Discover Your New Adventure."</p>
+    </section>
+
+    <!------------Map section ----------------->
+
+    <section class="map-section">
+      <div id="destination-card" class="destination-card">
+        <img id="destination-image" src="" alt="Destination" />
+        <h3 id="destination-title"></h3>
+        <p id="destination-description"></p>
+      </div>
+      <div id="map"></div>
+    </section>
+
+    <!------------Destination section ------------->
+
+    <section class="destination-section">
+      <h2>Popular Destinations</h2>
+      <div class="card-group">
+        <div class="col">
+          <div class="card h-100">
+            <img src="..." class="card-img-top" alt="..." />
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">
+                This is a longer card with supporting text below as a natural
+                lead-in to additional content. This content is a little bit
+                longer.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100">
+            <img src="..." class="card-img-top" alt="..." />
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">This is a short card.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100">
+            <img src="..." class="card-img-top" alt="..." />
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">
+                This is a longer card with supporting text below as a natural
+                lead-in to additional content.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100">
+            <img src="..." class="card-img-top" alt="..." />
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">
+                This is a longer card with supporting text below as a natural
+                lead-in to additional content. This content is a little bit
+                longer.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--------- Hotels and Restuarant ---------->
+    <section class="Hotel-section">
+      <h2>Hotels and Restaurants</h2>
+    </section>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDOBm6QEzOgcmz65vAr3709cDtM3E-0Ar8&callback=initMap"
+      async
+      defer
+    ></script>
+    <script>
+      function initMap() {
+        const sriLanka = { lat: 7.8731, lng: 80.7718 };
+        const map = new google.maps.Map(document.getElementById("map"), {
+          zoom: 7,
+          center: sriLanka,
+        });
+
+        const destinations = [
+          {
+            position: { lat: 6.9271, lng: 79.8612 },
+            title: "Colombo",
+            description:
+              "The bustling capital city with vibrant markets, colonial architecture, and a mix of modern and traditional attractions.",
+            image: "Assets/colombo.jpg",
+          },
+          {
+            position: { lat: 7.2906, lng: 80.6337 },
+            title: "Kandy",
+            description:
+              "Home to the Temple of the Tooth, a UNESCO World Heritage site, surrounded by lush hills and tea plantations.",
+            image: "Assets/kandy.jpg",
+          },
+          {
+            position: { lat: 6.0535, lng: 80.22 },
+            title: "Galle",
+            description:
+              "A historic coastal city with Dutch colonial forts, beautiful beaches, and a rich maritime history.",
+            image: "Assets/galle.jpg",
+          },
+          {
+            position: { lat: 7.957, lng: 80.7603 },
+            title: "Sigiriya",
+            description:
+              "Famous for its ancient rock fortress, frescoes, and gardens, a UNESCO World Heritage site.",
+            image: "Assets/sigiriya.jpg",
+          },
+          {
+            position: { lat: 6.4141, lng: 81.0027 },
+            title: "Yala",
+            description:
+              "A national park known for wildlife safaris, especially leopard spotting and diverse birdlife.",
+            image: "Assets/yala.jpg",
+          },
+        ];
+
+        let currentMarker = null;
+        let selectedMarker = null;
+
+        destinations.forEach((dest) => {
+          const marker = new google.maps.Marker({
+            position: dest.position,
+            map: map,
+            title: dest.title,
+          });
+
+          marker.addListener("mouseover", () => {
+            if (selectedMarker !== marker) {
+              // Show card on left
+              document.getElementById("destination-image").src = dest.image;
+              document.getElementById("destination-title").textContent =
+                dest.title;
+              document.getElementById("destination-description").textContent =
+                dest.description;
+              document.getElementById("destination-card").style.display =
+                "flex";
+              currentMarker = marker;
+            }
+          });
+
+          marker.addListener("mouseout", () => {
+            // Hide card after a delay to allow mouse to move to card, but not if selected
+            setTimeout(() => {
+              if (currentMarker === marker && selectedMarker !== marker) {
+                document.getElementById("destination-card").style.display =
+                  "none";
+                currentMarker = null;
+              }
+            }, 100);
+          });
+
+          marker.addListener("click", () => {
+            // Select marker and keep card visible
+            selectedMarker = marker;
+            document.getElementById("destination-image").src = dest.image;
+            document.getElementById("destination-title").textContent =
+              dest.title;
+            document.getElementById("destination-description").textContent =
+              dest.description;
+            document.getElementById("destination-card").style.display = "flex";
+          });
+        });
+
+        // Keep card visible when hovering over the card itself
+        const card = document.getElementById("destination-card");
+        card.addEventListener("mouseover", () => {
+          // Keep card visible
+        });
+
+        card.addEventListener("mouseout", () => {
+          // Hide card when mouse leaves the card, but not if selected
+          setTimeout(() => {
+            if (selectedMarker === null) {
+              document.getElementById("destination-card").style.display =
+                "none";
+              currentMarker = null;
+            }
+          }, 100);
+        });
+
+        // Hide card when clicking on map (deselect)
+        map.addListener("click", () => {
+          selectedMarker = null;
+          document.getElementById("destination-card").style.display = "none";
+          currentMarker = null;
+        });
+      }
+    </script>
+  </body>
+</html>
