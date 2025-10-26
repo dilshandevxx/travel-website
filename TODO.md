@@ -1,0 +1,2 @@
+- [x] Edit blog-story.html: Remove stray h1, add structure and placeholders for images, improve TOC, add footer.
+- [x] Edit style.css: Add CSS variables, gradients, transitions, animations, better layout and responsiveness.
