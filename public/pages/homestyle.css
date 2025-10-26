@@ -286,6 +286,30 @@ body {
 }
 
 .card-group {
-  margin: 10px 110px 30px 110px;
+  padding: 15px;
+  margin: 20px 110px 30px 110px;
   gap: 10px;
+  background-color: #666;
+}
+
+.Hotel-section h2 {
+  margin-left: 100px;
+}
+.explore-btn {
+  padding: 10px;
+  justify-content: center;
+  transition: all 0.3s ease;
+  background-color: var(--secondary-color);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.explore-btn:hover {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  background-color: #1557b0;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
