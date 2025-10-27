@@ -279,37 +279,274 @@ body {
   overflow: hidden;
   float: right;
 }
-/*Destination section*/
+
+/* Destination Section  */
+.destination-section {
+  padding: 20px;
+  background: #f3f4f6;
+  border-radius: 20px;
+  margin: 40px auto;
+  max-width: 1400px;
+}
 
 .destination-section h2 {
-  margin-left: 100px;
+  font-weight: 700;
+  margin-bottom: 25px;
+  color: #001f33;
 }
 
+/* Card Group Layout */
 .card-group {
-  padding: 15px;
-  margin: 20px 110px 30px 110px;
-  gap: 10px;
-  background-color: #666;
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+  align-items: stretch;
 }
 
-.Hotel-section h2 {
-  margin-left: 100px;
+.card-group::-webkit-scrollbar {
+  height: 8px;
 }
+
+.card-group::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 10px;
+}
+
+/* Card Styling */
+.card {
+  min-width: 260px;
+  border-radius: 15px;
+  border: none;
+  background: white;
+  transition: 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.card:hover {
+  transform: translateY(6px);
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card-img-top {
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  height: 180px;
+  object-fit: cover;
+}
+
+/* Card Text */
+.card-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #001933;
+}
+
+.card-text {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 20px;
+  line-height: 1.4rem;
+}
+
+/* Buttons */
 .explore-btn {
-  padding: 10px;
-  justify-content: center;
-  transition: all 0.3s ease;
-  background-color: var(--secondary-color);
+  background: #002855;
   color: white;
   border: none;
-  border-radius: 5px;
-  cursor: pointer;
+  border-radius: 8px;
+  padding: 8px 18px;
+  font-size: 14px;
+  transition: 0.3s ease;
+  width: 100%;
 }
 
 .explore-btn:hover {
-  padding-top: 15px;
-  padding-bottom: 15px;
-  background-color: #1557b0;
+  background: #004b95;
+}
+
+/* See More Button */
+.card-group .see-more {
+  align-self: center;
+  background: transparent;
+  border: 2px solid #002855;
+  color: #002855;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 30px;
+  padding: 8px 18px;
+  cursor: pointer;
+  min-width: 100px;
+  white-space: nowrap;
+  margin-right: 10px;
+  transition: 0.3s ease;
+}
+
+.card-group .see-more:hover {
+  background: #002855;
+  color: #fff;
+  transform: translateX(6px);
+}
+
+/* Hotel and Restuarant section */
+.hotel-section {
+  background: url("Assets/Hotel-background.jpeg") center/cover no-repeat;
+  padding: 60px 50px;
+  color: #fff;
+  position: relative;
+  margin-bottom: 100px;
+}
+.hotel-content h2 {
+  color: black;
+  font-weight: bold;
+  margin-left: 30px;
+}
+.hotel-content p {
+  margin-left: 50px;
+  color: #222222;
+  font-weight: bold;
+}
+
+.hotel-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(57, 57, 57, 0.45);
+  backdrop-filter: blur(6px);
+}
+
+.hotel-content {
+  position: relative;
+  margin-bottom: 35px;
+  z-index: 2;
+  text-align: left;
+}
+
+/* Card Layout */
+.hotel-card-group {
+  display: flex;
+  gap: 35px;
+  justify-content: center;
+  align-items: flex-start;
+  position: relative;
+  z-index: 2;
+  flex-wrap: wrap;
+  height: 300px;
+}
+
+/* Base card size SAME for all */
+.hotel-card {
+  width: 310px;
+  height: 220px;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  transition:
+    height 0.4s ease,
+    transform 0.4s ease;
+}
+
+.hotel-card img {
+  width: 100%;
+  height: 70%;
+  object-fit: cover;
+  transition: height 0.4s ease;
+}
+
+/* Text Overlay */
+.overlay {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 30%;
+  padding: 12px;
+  background: linear-gradient(to top, rgba(0, 32, 65, 0.95), transparent);
+  transition:
+    height 0.4s ease,
+    opacity 0.4s;
+  overflow: hidden;
+}
+
+.overlay p,
+.overlay .rating,
+.overlay .review-btn {
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.4s ease;
+}
+
+/* Hover Behavior: Grow card + reveal details */
+.hotel-card:hover {
+  height: 300px;
+  transform: translateY(-5px);
+}
+
+.hotel-card:hover img {
+  height: 50%;
+}
+
+.hotel-card:hover .overlay {
+  height: 68%;
+}
+
+/* Visible on hover */
+.hotel-card:hover .overlay p,
+.hotel-card:hover .rating,
+.hotel-card:hover .review-btn {
+  opacity: 1;
+  pointer-events: auto;
+  margin-top: 6px;
+}
+
+/* See More button stays centered & moves down as layout shifts */
+.see-more {
+  margin: 45px auto 0;
+  display: block;
+  padding: 10px 26px;
+  border-radius: 25px;
+  border: none;
+  font-size: 14px;
+  font-weight: bold;
+  background: #003a76;
+  color: #fff;
+  position: relative;
+  z-index: 3;
+  transition: 0.3s ease;
+}
+
+.see-more:hover {
+  background: #0059cc;
+  transform: translateY(5px);
+}
+
+/* Content text */
+.tag {
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+.overlay h3 {
+  margin: 2px 0;
+  font-size: 15px;
+}
+
+.rating {
+  font-size: 14px;
+}
+
+.review-btn {
+  background: #fff;
+  color: #002855;
+  border: none;
+  border-radius: 8px;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-weight: bold;
+}
+.review-btn:hover {
+  background: #0059cc;
+  color: #fff;
   transform: translateY(-2px);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 10px rgba(0, 89, 204, 0.4);
 }

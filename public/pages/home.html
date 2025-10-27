@@ -154,14 +154,92 @@
             </div>
           </div>
         </div>
-        <button class="see more">See more</button>
+        <div class="col">
+          <div class="card h-100">
+            <img src="Assets/yala.jpg" class="card-img-top" alt="..." />
+            <div class="card-body">
+              <h5 class="card-title">Yala national Park</h5>
+              <p class="card-text">
+                Go on safari to see leopards, elephants, and birds.
+              </p>
+              <button class="explore-btn">Explore</button>
+            </div>
+          </div>
+        </div>
+        <button class="see-more">See more</button>
       </div>
     </section>
 
     <!--------- Hotels and Restuarant ---------->
-    <section class="Hotel-section">
-      <h2>Hotels and Restaurants</h2>
+    <section class="hotel-section">
+      <div class="hotel-content">
+        <h2>Hotels & Restaurants</h2>
+        <p>
+          Find great places to stay and eat. <br />
+          From luxury hotels to local restaurants with authentic food.
+        </p>
+      </div>
+
+      <div class="hotel-card-group">
+        <!-- Card 1 -->
+        <div class="hotel-card">
+          <img src="Assets/Shangri-la.jpeg" alt="Hotel" />
+          <div class="overlay">
+            <span class="tag">Hotel</span>
+            <h3>Shangri-La Colombo</h3>
+            <p>Good food, great wine. A cozy place to eat and relax.</p>
+
+            <div class="rating">★★★★☆ <span class="rate-text">4.2</span></div>
+
+            <button class="review-btn">Add Review</button>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="hotel-card featured">
+          <img src="Assets/tuk-tuk.jpeg" alt="Restaurant" />
+          <div class="overlay">
+            <span class="tag">Restaurant</span>
+            <h3>TukTuk Wine & Dine</h3>
+            <p>Good food, great wine. A cozy place to eat and relax.</p>
+
+            <div class="rating">★★★★☆ <span class="rate-text">4.2</span></div>
+
+            <button class="review-btn">Add Review</button>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="hotel-card">
+          <img src="Assets/jetwin.jpeg" alt="Hotel" />
+          <div class="overlay">
+            <span class="tag">Hotel</span>
+            <h3>Jetwing Blue</h3>
+            <p>Good food, great wine. A cozy place to eat and relax.</p>
+
+            <div class="rating">★★★★☆ <span class="rate-text">4.2</span></div>
+
+            <button class="review-btn">Add Review</button>
+          </div>
+        </div>
+        <!-- Card 4 -->
+        <div class="hotel-card">
+          <img src="Assets/jetwin.jpeg" alt="Hotel" />
+          <div class="overlay">
+            <span class="tag">Hotel</span>
+            <h3>Jetwing Blue</h3>
+            <p>Good food, great wine. A cozy place to eat and relax.</p>
+
+            <div class="rating">★★★★☆ <span class="rate-text">4.2</span></div>
+
+            <button class="review-btn">Add Review</button>
+          </div>
+        </div>
+      </div>
+
+      <button class="see-more">See more</button>
     </section>
+
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
@@ -289,6 +367,17 @@
           currentMarker = null;
         });
       }
+
+      //Hotel section
+      document.querySelectorAll(".hotel-card").forEach((card) => {
+        card.addEventListener("mouseenter", () => {
+          card.style.boxShadow = "0 0 30px rgba(255,255,255,0.35)";
+        });
+
+        card.addEventListener("mouseleave", () => {
+          card.style.boxShadow = "none";
+        });
+      });
     </script>
   </body>
 </html>
