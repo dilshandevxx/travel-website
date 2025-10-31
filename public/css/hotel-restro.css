@@ -95,8 +95,8 @@
 .search-box input {
   border-radius: 25px;
   padding: 8px 40px 8px 20px;
-  border: 1px solid #ddd;
-  width: 250px;
+  border: 2px solid #4c9ab2;
+  width: 280px;
   transition: all 0.3s;
 }
 
@@ -199,3 +199,66 @@
   transform: translateY(-3px);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
 } */
+
+/* hero section */
+.hero {
+  margin-top: 80px;
+  height: 620px;
+  background-image: url("/travel-website/images/3.jpg");
+  background-position: center;
+  background-size: cover;
+  text-align: center;
+}
+
+.hero-content {
+  width: 500px;
+  text-align: center;
+  padding: 50px 0;
+  margin: 0 auto;
+  position: relative;
+  top: 130px;
+}
+
+.hero-content h1 {
+  color: white;
+  margin: 0;
+  font-size: 80px;
+  font-weight: bold;
+}
+
+.hero-content p {
+  white-space: nowrap;
+
+  text-align: center;
+  color: white;
+  margin-top: 20px;
+  margin-left: -250px;
+  font-size: 30px;
+}
+.search-box {
+  padding-top: 10px;
+  position: relative;
+}
+
+.search-box input {
+  border-radius: 25px;
+  padding: 8px 40px 8px 10px;
+  border: 2px solid #4c9ab2;
+  width: 500px;
+  transition: all 0.3s;
+}
+
+.search-box input:focus {
+  box-shadow: 0 0 10px rgba(26, 115, 232, 0.3);
+  border-color: var(--secondary-color);
+  outline: none;
+}
+
+.search-box i {
+  padding-top: 15px;
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #666;
+}
