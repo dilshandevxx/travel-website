@@ -1,3 +1,9 @@
+:root {
+  --primary-color: #0d3252;
+  --secondary-color: #4c9ab2;
+  --navbar-transparency: 0.9;
+}
+
 /* Navbar Styles */
 .navbar {
   background: rgba(255, 255, 255, var(--navbar-transparency));
@@ -30,6 +36,15 @@
 }
 
 /* Optional: Adjust logo size when scrolled */
+
+.navbar-nav {
+  white-space: nowrap;
+}
+
+.navbar-nav .nav-item {
+  padding: 0 8px;
+}
+
 .navbar.scrolled .navbar-logo {
   height: 45px;
 }
@@ -126,7 +141,7 @@
 .user-section:hover {
   color: var(--secondary-color);
 }
-/* Hero Section .hero-section {
+Hero Section .hero-section {
   position: relative;
   height: 100vh;
   min-height: 100vh;
@@ -198,7 +213,7 @@
   background: #0d3252;
   transform: translateY(-3px);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-} */
+}
 
 /* hero section */
 .hero {
