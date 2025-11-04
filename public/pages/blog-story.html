@@ -3,169 +3,315 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Chasing Waterfalls: Our Epic Backpacking Adventure</title>
-    <link rel="stylesheet" href="../css/style.css" />
+    <title>Ella: Sri Lanka's Green Heart - Modern Travel Blog</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* CSS Variables for easy theme switching */
+      :root {
+        --primary-color: #2a6f44; /* Deep Green - for a nature/tea theme */
+        --accent-color: #f7b32b; /* Golden Yellow */
+        --text-color: #333333;
+        --light-bg: #ffffff;
+        --dark-bg: #f8fcf8;
+      }
+
+      /* Base Reset and Typography */
+      body {
+        font-family: "Poppins", sans-serif;
+        line-height: 1.7;
+        margin: 0;
+        padding: 0;
+        background-color: var(--dark-bg);
+        color: var(--text-color);
+      }
+
+      .container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      a {
+        color: var(--primary-color);
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      a:hover {
+        color: var(--accent-color);
+      }
+
+      /* Header / Hero Section */
+      .hero-section {
+        padding: 80px 0;
+        background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+          url("https://images.unsplash.com/photo-1549414981-d0ac24b8d75e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80")
+            no-repeat center center/cover;
+        color: white;
+        text-align: center;
+        margin-bottom: 40px;
+      }
+
+      .hero-section h1 {
+        font-family: "Playfair Display", serif;
+        font-size: 3.5em;
+        margin-bottom: 5px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+      }
+
+      .hero-section p {
+        font-size: 1.2em;
+        font-weight: 300;
+      }
+
+      /* Article Grid Layout (using CSS Grid) */
+      .article-grid {
+        display: grid;
+        grid-template-columns: 3fr 1fr; /* 3 parts for content, 1 part for sidebar */
+        gap: 40px;
+      }
+
+      .main-content {
+        background-color: var(--light-bg);
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      }
+
+      .sidebar {
+        padding: 20px;
+        background-color: var(--dark-bg);
+        border: 1px solid #e0e0e0;
+        border-radius: 12px;
+        max-height: fit-content;
+      }
+
+      .sidebar h3 {
+        font-family: "Playfair Display", serif;
+        color: var(--primary-color);
+        border-bottom: 2px solid var(--accent-color);
+        padding-bottom: 10px;
+        margin-top: 0;
+        margin-bottom: 20px;
+      }
+
+      .sidebar ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .sidebar li {
+        margin-bottom: 10px;
+        font-size: 0.95em;
+      }
+
+      /* Article Styling */
+      article h2 {
+        font-family: "Playfair Display", serif;
+        color: var(--primary-color);
+        margin-top: 40px;
+        font-weight: 700;
+        position: relative;
+      }
+
+      article img {
+        width: 100%;
+        height: auto;
+        display: block;
+        margin: 30px 0;
+        border-radius: 10px;
+        object-fit: cover;
+      }
+
+      /* Interactive Element Styling */
+      .hidden-content {
+        /* Initial state handled by JS, but this ensures CSS styling is ready */
+        display: none;
+      }
+
+      #readMoreBtn {
+        display: inline-block;
+        margin: 30px 0 10px 0;
+        padding: 12px 25px;
+        background-color: var(--accent-color);
+        color: white;
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: background-color 0.3s, transform 0.2s;
+      }
+
+      #readMoreBtn:hover {
+        background-color: #e69d00;
+        transform: translateY(-2px);
+      }
+
+      /* Footer */
+      footer {
+        text-align: center;
+        padding: 30px;
+        background-color: var(--primary-color);
+        color: white;
+        font-size: 0.9em;
+        margin-top: 60px;
+      }
+
+      /* Media Queries for Responsiveness */
+      @media (max-width: 992px) {
+        .hero-section h1 {
+          font-size: 3em;
+        }
+        .article-grid {
+          grid-template-columns: 1fr; /* Stack content and sidebar */
+          gap: 30px;
+        }
+        .main-content {
+          order: 1; /* Main content first */
+        }
+        .sidebar {
+          order: 2; /* Sidebar below the main content */
+        }
+      }
+
+      @media (max-width: 576px) {
+        .hero-section {
+          padding: 60px 0;
+        }
+        .hero-section h1 {
+          font-size: 2.5em;
+        }
+      }
+    </style>
   </head>
   <body>
-    <header class="page-header">
-      <div class="hero-image">
-        <img
-          src="featured-image.jpg"
-          alt="Scenic view of a Sri Lankan tea plantation"
-        />
-      </div>
-      <div class="header-content">
-        <h1>
-          Chasing Waterfalls: Our Epic Two-Week Backpacking Adventure Through
-          Sri Lanka's Hill Country
-        </h1>
-        <p class="metadata">
-          By **[Author Name]** | Published: October 25, 2025 | 7-minute read
+    <section class="hero-section">
+      <div class="container">
+        <h1>Ella: Sri Lanka's Green Heart</h1>
+        <p>
+          A journey through tea estates, waterfalls, and mist-covered peaks.
         </p>
       </div>
-    </header>
+    </section>
 
-    <main class="story-layout">
-      <article class="story-content">
-        <section class="introduction">
-          <p>
-            We thought we knew what 'lush' meant until we stepped off the train
-            in Ella... This guide covers our itinerary from Nuwara Eliya to
-            Ella, tips on the best local eats, and how to hike Little Adam's
-            Peak at sunrise.
-          </p>
-
-          <div class="toc">
-            <h3>Table of Contents</h3>
-            <ul>
-              <li>
-                <a href="#nuwara-eliya"
-                  >Day 3: The Tea Plantations of Nuwara Eliya</a
-                >
-              </li>
-              <li><a href="#ella-hike">Hiking to Little Adam's Peak</a></li>
-              <li><a href="#budget">Practical Tips & Budget Breakdown</a></li>
-            </ul>
-          </div>
-        </section>
-
-        <section id="nuwara-eliya" class="story-section">
-          <h2>Day 3: The Tea Plantations of Nuwara Eliya</h2>
-          <p>
-            The air was cool and crisp, a stark contrast to the coast. We rented
-            a tuk-tuk and spent the morning exploring a local tea factory...
-          </p>
-          <div class="story-image-gallery">
-            <img
-              src="tea-picker-photo.jpg"
-              alt="A tea picker working in the fields"
-            />
-          </div>
-        </section>
-
-        <section id="ella-hike" class="story-section">
-          <h2>Hiking to Little Adam's Peak</h2>
-          <p>
-            We set our alarms for 4:00 AM, knowing the reward would be worth the
-            early start. The climb is moderate...
-          </p>
-          <div class="pro-tip">
+    <div class="container">
+      <div class="article-grid">
+        <main class="main-content">
+          <article>
+            <h2>The Most Scenic Train Ride</h2>
             <p>
-              <strong>Pro Tip:</strong> Start your hike at 5:00 AM to beat the
-              crowds and catch the best sunrise views!
+              My adventure began on the famous blue train, winding slowly from
+              Kandy through the central highlands. It’s not just a mode of
+              transport; it’s an experience. Every window view is a postcard:
+              sweeping **tea plantations**, tiny villages, and the deep valleys
+              of the Sri Lankan interior. It felt like stepping back into a
+              simpler, greener time.
             </p>
-          </div>
-        </section>
 
-        <section id="budget" class="story-section budget-section">
-          <h2>Practical Tips & Budget Breakdown</h2>
+            <p>
+              Ella itself is a charming, laid-back mountain town—the perfect
+              base for hiking and relaxation. The air is crisp and cool, a
+              welcome change from the coastal heat, and the local food,
+              especially the rice and curry, is unforgettable.
+            </p>
+
+            <h2>Little Adam's Peak & Nine Arch Bridge</h2>
+            <img
+              src="https://images.unsplash.com/photo-1598918237243-7f2a1389e675?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+              alt="View from Little Adam's Peak at sunrise"
+            />
+
+            <p>
+              The hike up **Little Adam's Peak** is highly recommended for
+              sunrise. It's a moderate climb that rewards you with panoramic
+              views of the entire Ella Gap. From the summit, you can clearly see
+              the next major highlight: the majestic **Nine Arch Bridge**.
+            </p>
+
+            <p>
+              Finding the Nine Arch Bridge requires a short trek through the
+              jungle, but the sight of the colonial-era architecture against the
+              lush green backdrop is stunning. If you time it right, seeing the
+              train pass across the arches is truly magical.
+            </p>
+
+            <div id="moreContent" class="hidden-content">
+              <h2>Tea Tasting and Culture</h2>
+              <p>
+                No trip to the highlands is complete without a deep dive into
+                the **Ceylon Tea** culture. I spent an afternoon visiting a
+                local tea factory, learning about the process from leaf picking
+                to the final brew. The aroma and flavor of fresh, high-grown Sri
+                Lankan tea are unparalleled.
+              </p>
+
+              <p>
+                Finally, the massive **Ravana Falls**, tumbling down the rocks
+                just outside of town, provided the perfect setting for a final
+                photo op before heading back down to the coast. Ella is a
+                destination that truly grounds you.
+              </p>
+            </div>
+
+            <button id="readMoreBtn">Continue Reading</button>
+          </article>
+        </main>
+
+        <aside class="sidebar">
+          <h3>Trip Summary</h3>
           <ul>
-            <li>
-              <strong>Accommodation:</strong> $30/night average for guesthouses.
-            </li>
-            <li>
-              <strong>Transport:</strong> Use local buses for long
-              distances—it's cheaper!
-            </li>
+            <li>**Location:** Ella, Sri Lanka (The Hill Country)</li>
+            <li>**Recommended Stay:** 3-4 Days</li>
+            <li>**Top Activity:** Kandy to Ella Train Journey</li>
+            <li>**Best Tip:** Pack layers—it gets chilly in the evenings!</li>
           </ul>
-        </section>
 
-        <section class="conclusion">
-          <p>
-            Our journey through the hill country was unforgettable. The
-            landscapes, the people, the food—it all makes Sri Lanka truly
-            special.
-          </p>
-          <a href="/contact" class="cta-button">
-            Plan Your Custom Sri Lanka Itinerary Now!
-          </a>
-        </section>
-      </article>
-
-      <aside class="sidebar">
-        <div class="author-bio">
-          <img src="author-photo.jpg" alt="Author Photo" class="author-img" />
-          <h4>About the Author</h4>
-          <p>
-            Hi, I'm Alex! I spend my life chasing the next great adventure and
-            sharing practical tips to help you do the same.
-          </p>
-        </div>
-
-        <div class="related-posts">
-          <h4>More Adventures</h4>
+          <h3>Explore More</h3>
           <ul>
-            <li>
-              <a href="#">Driving the Southern Coast: Galle to Mirissa</a>
-            </li>
-            <li><a href="#">The Best Street Food in Colombo</a></li>
+            <li><a href="#">Coastal Surf Guide: Ahangama</a></li>
+            <li><a href="#">Ancient Wonders of Sigiriya</a></li>
+            <li><a href="#">Ultimate Guide to Sri Lankan Cuisine</a></li>
           </ul>
-        </div>
-
-        <div class="social-share">
-          <h4>Share This Story</h4>
-          <button>Share on X</button>
-          <button>Share on Pinterest</button>
-        </div>
-      </aside>
-    </main>
-    <footer class="page-footer">
-      <div class="footer-container">
-        <div class="footer-section">
-          <h4>Travel Sri Lanka</h4>
-          <p>
-            Discover the beauty of Sri Lanka with our expert guides and
-            personalized itineraries.
-          </p>
-        </div>
-        <div class="footer-section">
-          <h4>Quick Links</h4>
-          <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Destinations</a></li>
-            <li><a href="#">Blog</a></li>
-            <li><a href="#">Contact</a></li>
-          </ul>
-        </div>
-        <div class="footer-section">
-          <h4>Follow Us</h4>
-          <div class="social-links">
-            <a href="#" class="social-icon">Facebook</a>
-            <a href="#" class="social-icon">Instagram</a>
-            <a href="#" class="social-icon">Twitter</a>
-          </div>
-        </div>
-        <div class="footer-section">
-          <h4>Contact Info</h4>
-          <p>Email: info@travelsrilanka.com</p>
-          <p>Phone: +94 123 456 789</p>
-        </div>
+        </aside>
       </div>
-      <div class="footer-bottom">
-        <p>&copy; 2025 Travel Sri Lanka. All rights reserved.</p>
+    </div>
+
+    <footer>
+      <div class="container">
+        <p>
+          &copy; 2025 Green Horizon Travel Tales | Built with HTML, CSS, & JS
+        </p>
       </div>
     </footer>
 
-    <script src="../js/script.js"></script>
+    <script>
+      const moreContent = document.getElementById("moreContent");
+      const readMoreBtn = document.getElementById("readMoreBtn");
+
+      // Set initial state to hidden (needed for JS functionality)
+      moreContent.style.display = "none";
+
+      readMoreBtn.addEventListener("click", function () {
+        if (moreContent.style.display === "none") {
+          moreContent.style.display = "block";
+          readMoreBtn.textContent = "Show Less";
+        } else {
+          moreContent.style.display = "none";
+          readMoreBtn.textContent = "Continue Reading";
+          // Smooth scroll to the top of the newly hidden content area
+          window.scrollTo({
+            top: document.querySelector(".main-content").offsetTop,
+            behavior: "smooth",
+          });
+        }
+      });
+    </script>
   </body>
 </html>
