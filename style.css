@@ -4,7 +4,7 @@ body {
   font-family: 'Poppins', sans-serif;
   color: white;
   height: 100vh;
-  background: url('background.jpg') no-repeat center center/cover;
+  background: url('https://images.unsplash.com/photo-1668912321650-9c5452a1d960?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OTN8fHRyYXZlbCUyMGluJTIwc3JpbGFua2F8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=600') no-repeat center center/cover;
   display: flex;
   justify-content: center;
   align-items: center;
