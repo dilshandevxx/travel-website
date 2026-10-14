@@ -192,3 +192,111 @@ export const CustomerApp: React.FC<CustomerAppProps> = ({ initialBookingId, onCl
         return 'home';
     }
   };
+   // ------------------- INITIAL DATA LOADING -------------------
+
+  const loadData = async () => {
+    try {
+      const [cats, provs, bks, addrs, notifs, revs] = await Promise.all([
+        api.getCategories(),
+        api.getProviders({ verifiedOnly: true }),
+        api.getServiceRequests(),
+        api.getAddresses().catch(() => []),
+        api.getNotifications().catch(() => ({ notifications: [] })),
+        api.getMyReviews().catch(() => [])
+      ]);
+      setCategories(cats);
+      setProviders(provs);
+      setMyBookings(bks);
+      setAddresses(addrs);
+      setNotifications(notifs.notifications || []);
+      setMyReviews(revs);
+
+      // Default service address
+      const def = addrs.find((a: Address) => a.isDefault);
+      if (def) {
+        setFormAddress(def.addressLine);
+        setFormCity(def.city);
+      }
+
+      // Check for active ongoing request
+      const ongoing = bks.find(b => ['PENDING', 'ACCEPTED', 'ON_THE_WAY', 'ARRIVED', 'IN_PROGRESS', 'AWAITING_CUSTOMER_CONFIRMATION'].includes(b.status));
+      if (ongoing) {
+        setActiveBooking(ongoing);
+      }
+    } catch (err) {
+      console.error('Failed to load initial customer data:', err);
+    } finally {
+      setIsLoadingInitialData(false);
+    }
+  };
+
+  useEffect(() => {
+    loadData();
+  }, [user]);
+
+  // Handle Initial Booking Passed From Props / Deep Link
+  useEffect(() => {
+    if (initialBookingId) {
+      navigate('BookingProgressScreen', { requestId: initialBookingId });
+      if (onClearInitialBooking) onClearInitialBooking();
+    }
+  }, [initialBookingId]);
+
+  // Periodic poll to keep myBookings and activeBooking synchronized with provider actions
+  useEffect(() => {
+    const timer = setInterval(async () => {
+      try {
+        const [bks, notifs] = await Promise.all([
+          api.getServiceRequests(),
+          api.getNotifications().catch(() => ({ notifications: [] }))
+        ]);
+        setMyBookings(bks);
+        setNotifications(notifs.notifications || []);
+
+        const ongoing = bks.find(b => ['PENDING', 'ACCEPTED', 'ON_THE_WAY', 'ARRIVED', 'IN_PROGRESS', 'AWAITING_CUSTOMER_CONFIRMATION'].includes(b.status));
+        if (ongoing) {
+          setActiveBooking(ongoing);
+        }
+      } catch (err) {
+        // Silent background sync
+      }
+    }, 4000);
+    return () => clearInterval(timer);
+  }, []);
+
+  // ------------------- CHAT LOGIC FOR MESSAGES SCREEN -------------------
+
+  const loadChatMessages = async (bookingId: string) => {
+    try {
+      const msgs = await api.getBookingMessages(bookingId);
+      setChatMessages(msgs);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  useEffect(() => {
+    if (chatBookingId) {
+      loadChatMessages(chatBookingId);
+      const timer = setInterval(() => {
+        loadChatMessages(chatBookingId);
+      }, 3000);
+      return () => clearInterval(timer);
+    }
+  }, [chatBookingId]);
+
+  const handleSendChatMessage = async (customText?: string) => {
+    const text = customText || chatInputText;
+    if (!chatBookingId || !text.trim() || isSendingChat) return;
+    setIsSendingChat(true);
+    try {
+      const msg = await api.sendBookingMessage(chatBookingId, text.trim());
+      setChatMessages(prev => [...prev, msg]);
+      setChatInputText('');
+    } catch (err: any) {
+      alert('Could not send message: ' + err.message);
+    } finally {
+      setIsSendingChat(false);
+    }
+  };
+
