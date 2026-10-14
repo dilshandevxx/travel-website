@@ -300,3 +300,125 @@ export const CustomerApp: React.FC<CustomerAppProps> = ({ initialBookingId, onCl
     }
   };
 
+  // ------------------- AI DIAGNOSIS -------------------
+
+  const handleRunAiDiagnosis = async (textToAnalyze?: string) => {
+    const text = textToAnalyze || formDescription;
+    if (!text || text.trim().length === 0) return;
+    setAiAnalyzing(true);
+    try {
+      const res = await api.classifyProblem(text);
+      setAiResult(res);
+
+      const matched = categories.find(c => 
+        c.name.toLowerCase() === res.suggestedCategoryName.toLowerCase() || 
+        c.id === res.suggestedCategoryId
+      );
+      if (matched) {
+        setFormCategory(matched);
+      }
+      if (res.urgency === 'EMERGENCY') {
+        setFormUrgency('EMERGENCY');
+      }
+      if (!formTitle) {
+        setFormTitle(res.problemSummary);
+      }
+    } catch (err) {
+      console.error('AI diagnosis error:', err);
+    } finally {
+      setAiAnalyzing(false);
+    }
+  };
+
+  // ------------------- ADDRESS MANAGEMENT -------------------
+
+  const handleSetDefaultAddress = async (id: string) => {
+    try {
+      await api.setDefaultAddress(id);
+      const updated = await api.getAddresses();
+      setAddresses(updated);
+      const def = updated.find(a => a.id === id);
+      if (def) {
+        setFormAddress(def.addressLine);
+        setFormCity(def.city);
+      }
+    } catch (err: any) {
+      alert(err.message);
+    }
+  };
+
+  const handleCreateAddress = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!newAddrLine || !newAddrCity) return;
+    setIsSavingNewAddr(true);
+    try {
+      await api.addAddress({
+        userId: user!.id,
+        label: newAddrLabel,
+        addressLine: newAddrLine,
+        city: newAddrCity,
+        district: 'Colombo',
+        latitude: 6.9271,
+        longitude: 79.8612,
+        isDefault: addresses.length === 0
+      });
+      const updated = await api.getAddresses();
+      setAddresses(updated);
+      setShowAddAddressModal(false);
+      setNewAddrLine('');
+    } catch (err: any) {
+      alert(err.message);
+    } finally {
+      setIsSavingNewAddr(false);
+    }
+  };
+
+  // ------------------- 1. FIX THE SUBMIT REQUEST BUTTON -------------------
+
+  const handleSubmitRequest = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setSubmitErrorMessage(null);
+
+    // Step 1: Validate all required fields
+    const errors: Record<string, string> = {};
+
+    if (!formCategory) {
+      errors.categoryId = 'Please select a skilled trade category';
+    }
+
+    if (!formTitle.trim()) {
+      errors.title = 'Please enter a summary title for the problem';
+    } else if (formTitle.trim().length < 4) {
+      errors.title = 'Title must be at least 4 characters';
+    }
+
+    if (!formDescription.trim()) {
+      errors.description = 'Please describe the issue in detail';
+    } else if (formDescription.trim().length < 10) {
+      errors.description = 'Please provide more details (minimum 10 characters)';
+    }
+
+    if (!formAddress.trim()) {
+      errors.address = 'Service street address is required';
+    }
+
+    if (!formCity.trim()) {
+      errors.city = 'City or service area is required';
+    }
+
+    if (!formDate) {
+      errors.preferredDate = 'Please select your preferred service date';
+    }
+
+    // Step 2: If validation fails, show clear inline errors and remain on the form
+    if (Object.keys(errors).length > 0) {
+      setFormErrors(errors);
+      return;
+    }
+
+    setFormErrors({});
+
+    // Step 3: Prevent duplicate submissions by disabling the button
+    setIsSubmittingRequest(true);
+
+    try {
