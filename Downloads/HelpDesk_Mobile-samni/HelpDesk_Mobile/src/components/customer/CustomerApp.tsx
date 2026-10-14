@@ -146,3 +146,49 @@ export const CustomerApp: React.FC<CustomerAppProps> = ({ initialBookingId, onCl
     } as CustomerNavigationRoute;
 
     setRouteStack(prev => {
+         // If switching to top-level tab screens, reset stack root
+      if (['HomeScreen', 'BookingHistoryScreen', 'NotificationsScreen', 'MessagesScreen', 'ProfileScreen'].includes(normalizedScreen)) {
+        return [newRoute];
+      }
+      return [...prev, newRoute];
+    });
+  }, []);
+
+  const goBack = useCallback(() => {
+    setRouteStack(prev => {
+      if (prev.length > 1) {
+        return prev.slice(0, prev.length - 1);
+      }
+      return [{ name: 'HomeScreen' }];
+    });
+  }, []);
+
+  const navigation: CustomerNavigation = {
+    currentRoute,
+    navigate,
+    goBack,
+    canGoBack: routeStack.length > 1
+  };
+
+  // Determine active bottom tab based on current screen
+  const getActiveTab = (): 'home' | 'jobs' | 'messages' | 'notifications' | 'profile' => {
+    switch (currentRoute.name) {
+      case 'HomeScreen':
+      case 'CreateServiceRequestScreen':
+      case 'ProviderDetailsScreen':
+        return 'home';
+      case 'BookingHistoryScreen':
+      case 'BookingProgressScreen':
+      case 'BookingProgress':
+        return 'jobs';
+      case 'MessagesScreen':
+        return 'messages';
+      case 'NotificationsScreen':
+        return 'notifications';
+      case 'ProfileScreen':
+      case 'SettingsScreen':
+        return 'profile';
+      default:
+        return 'home';
+    }
+  };
