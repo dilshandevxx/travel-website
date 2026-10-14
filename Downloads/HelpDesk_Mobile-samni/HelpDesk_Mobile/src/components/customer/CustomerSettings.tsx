@@ -668,3 +668,306 @@ export const CustomerSettings: React.FC<Props> = ({ onBack, initialSubView = 'ma
             </p>
           </div>
         )}
+
+        {/* ==================== SUBVIEW: APP PREFERENCES ==================== */}
+        {activeSubView === 'preferences' && (
+          <div className="space-y-4">
+            
+            <div className="bg-white rounded-2xl border border-slate-200 shadow-xs divide-y divide-slate-100 overflow-hidden text-xs">
+              
+              {/* Language */}
+              <div className="p-4 space-y-2">
+                <span className="font-bold text-slate-900 block">Display Language</span>
+                <div className="grid grid-cols-3 gap-2">
+                  {[
+                    { code: 'en', label: 'English' },
+                    { code: 'si', label: 'සිංහල (Sinhala)' },
+                    { code: 'ta', label: 'தமிழ் (Tamil)' }
+                  ].map((lang) => (
+                    <button
+                      key={lang.code}
+                      onClick={() => handleUpdateAppSetting('language', lang.code)}
+                      className={`py-2 px-3 rounded-xl border font-bold text-xs transition ${
+                        appSettings.language === lang.code
+                          ? 'bg-blue-600 text-white border-blue-600 shadow-xs'
+                          : 'bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100'
+                      }`}
+                    >
+                      {lang.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Theme */}
+              <div className="p-4 space-y-2">
+                <span className="font-bold text-slate-900 block">App Theme</span>
+                <div className="grid grid-cols-3 gap-2">
+                  {[
+                    { key: 'system', label: 'System' },
+                    { key: 'light', label: 'Light' },
+                    { key: 'dark', label: 'Dark' }
+                  ].map((theme) => (
+                    <button
+                      key={theme.key}
+                      onClick={() => handleUpdateAppSetting('theme', theme.key)}
+                      className={`py-2 px-3 rounded-xl border font-bold text-xs transition ${
+                        appSettings.theme === theme.key
+                          ? 'bg-blue-600 text-white border-blue-600 shadow-xs'
+                          : 'bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100'
+                      }`}
+                    >
+                      {theme.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Currency */}
+              <div className="p-4 flex items-center justify-between">
+                <div>
+                  <span className="font-bold text-slate-900 block">Billing Currency</span>
+                  <span className="text-[11px] text-slate-500">Fixed to Sri Lankan Rupee (LKR)</span>
+                </div>
+                <span className="font-extrabold text-blue-600 bg-blue-50 px-2.5 py-1 rounded-lg">
+                  LKR (Rs.)
+                </span>
+              </div>
+
+              {/* Font Size Accessibility */}
+              <div className="p-4 space-y-2">
+                <span className="font-bold text-slate-900 block">Text Size Accessibility</span>
+                <div className="grid grid-cols-2 gap-2">
+                  <button
+                    onClick={() => handleUpdateAppSetting('fontSize', 'normal')}
+                    className={`py-2 px-3 rounded-xl border font-bold text-xs transition ${
+                      appSettings.fontSize === 'normal'
+                        ? 'bg-blue-600 text-white border-blue-600'
+                        : 'bg-slate-50 text-slate-700 border-slate-200'
+                    }`}
+                  >
+                    Standard Size
+                  </button>
+                  <button
+                    onClick={() => handleUpdateAppSetting('fontSize', 'large')}
+                    className={`py-2 px-3 rounded-xl border font-bold text-xs transition ${
+                      appSettings.fontSize === 'large'
+                        ? 'bg-blue-600 text-white border-blue-600'
+                        : 'bg-slate-50 text-slate-700 border-slate-200'
+                    }`}
+                  >
+                    Large / Accessible
+                  </button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        )}
+
+        {/* ==================== SUBVIEW: HELP CENTRE & FAQ ==================== */}
+        {activeSubView === 'faq' && (
+          <div className="space-y-4">
+            
+            {/* Contact Hotline */}
+            <div className="bg-gradient-to-r from-blue-700 to-indigo-800 text-white p-4 rounded-2xl shadow-sm space-y-2">
+              <span className="text-[10px] uppercase font-bold text-blue-200 block">HelpDesk Sri Lanka Support</span>
+              <h3 className="text-base font-extrabold">24/7 Home-Services Assistance</h3>
+              <div className="flex items-center gap-4 pt-1 text-xs text-blue-100">
+                <a href="tel:+94112345678" className="flex items-center gap-1 font-bold underline">
+                  <Phone className="w-3.5 h-3.5" /> +94 11 234 5678
+                </a>
+                <a href="mailto:support@helpdesk.lk" className="flex items-center gap-1 underline">
+                  <Mail className="w-3.5 h-3.5" /> support@helpdesk.lk
+                </a>
+              </div>
+            </div>
+
+            {/* FAQs Accordion Cards */}
+            <div className="space-y-2.5 text-xs">
+              <div className="bg-white p-3.5 rounded-2xl border border-slate-200 space-y-1">
+                <h4 className="font-bold text-slate-900">What is the Callout Fee and how is it calculated?</h4>
+                <p className="text-slate-600 leading-relaxed text-[11px]">
+                  The callout fee covers the qualified technician's transport, initial on-site technical inspection, and diagnostic testing. Base fees start from Rs. 1,500 depending on category. For emergency dispatches, a 1.5x multiplier applies.
+                </p>
+              </div>
+
+              <div className="bg-white p-3.5 rounded-2xl border border-slate-200 space-y-1">
+                <h4 className="font-bold text-slate-900">How do Additional Charge Proposals work?</h4>
+                <p className="text-slate-600 leading-relaxed text-[11px]">
+                  If replacement pipes, breakers, or unforeseen parts are needed, the technician sends a proposal directly to your app. The extra cost will only be added to your invoice after you click "Approve".
+                </p>
+              </div>
+
+              <div className="bg-white p-3.5 rounded-2xl border border-slate-200 space-y-1">
+                <h4 className="font-bold text-slate-900">What happens if I am not satisfied with the repair?</h4>
+                <p className="text-slate-600 leading-relaxed text-[11px]">
+                  Do not confirm completion until you have tested the repair. You can tap "Report Issue" to immediately escalate a complaint to our Colombo administration team for mediation.
+                </p>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* ==================== SUBVIEW: PRIVACY & TERMS ==================== */}
+        {activeSubView === 'privacy' && (
+          <div className="space-y-4">
+            <div className="bg-white p-4 rounded-2xl border border-slate-200 space-y-3 text-xs leading-relaxed text-slate-700">
+              <h4 className="font-bold text-slate-900 text-sm">Privacy Policy & Platform Terms</h4>
+              
+              <p>
+                HelpDesk Sri Lanka complies with domestic digital privacy best practices. Your exact GPS coordinates and residential address are only revealed to an assigned technician after a booking is confirmed.
+              </p>
+
+              <h5 className="font-bold text-slate-800">1. Verification & Identity</h5>
+              <p className="text-[11px]">
+                Technicians undergo identity document review, skills certification checking, and police clearance inspection before being granted access to customer jobs.
+              </p>
+
+              <h5 className="font-bold text-slate-800">2. Transparent Pricing Guarantee</h5>
+              <p className="text-[11px]">
+                All labor rates, callout fees, and material charges are itemized in Sri Lankan Rupees (LKR). Hidden markups or unapproved extra charges are strictly prohibited.
+              </p>
+            </div>
+          </div>
+        )}
+
+      </div>
+
+      {/* ==================== MODAL: ADD ADDRESS ==================== */}
+      {showAddAddress && (
+        <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4">
+          <div className="bg-white w-full max-w-sm rounded-3xl p-5 shadow-2xl border border-slate-200 space-y-4">
+            <div className="flex items-center justify-between pb-2 border-b border-slate-100">
+              <h3 className="font-bold text-slate-900 text-sm">Add New Address</h3>
+              <button onClick={() => setShowAddAddress(false)} className="p-1 text-slate-400">
+                <X className="w-4 h-4" />
+              </button>
+            </div>
+
+            <form onSubmit={handleAddAddress} className="space-y-3">
+              <div>
+                <label className="block text-xs font-bold text-slate-800 mb-1">Label</label>
+                <select
+                  value={newAddressLabel}
+                  onChange={(e) => setNewAddressLabel(e.target.value)}
+                  className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-900"
+                >
+                  <option value="Home">Home</option>
+                  <option value="Office">Office</option>
+                  <option value="Villa">Villa / Property</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+
+              <div>
+                <label className="block text-xs font-bold text-slate-800 mb-1">Address Line *</label>
+                <input
+                  type="text"
+                  value={newAddressLine}
+                  onChange={(e) => setNewAddressLine(e.target.value)}
+                  placeholder="e.g. 15/4 Duplication Road"
+                  required
+                  className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-900"
+                />
+              </div>
+
+              <div className="grid grid-cols-2 gap-2">
+                <div>
+                  <label className="block text-xs font-bold text-slate-800 mb-1">City / Area *</label>
+                  <input
+                    type="text"
+                    value={newAddressCity}
+                    onChange={(e) => setNewAddressCity(e.target.value)}
+                    required
+                    placeholder="e.g. Colombo 03"
+                    className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-900"
+                  />
+                </div>
+                <div>
+                  <label className="block text-xs font-bold text-slate-800 mb-1">District</label>
+                  <select
+                    value={newAddressDistrict}
+                    onChange={(e) => setNewAddressDistrict(e.target.value)}
+                    className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-900"
+                  >
+                    <option value="Colombo">Colombo</option>
+                    <option value="Gampaha">Gampaha</option>
+                    <option value="Kandy">Kandy</option>
+                    <option value="Kalutara">Kalutara</option>
+                  </select>
+                </div>
+              </div>
+
+              <div className="pt-2 flex gap-2">
+                <button
+                  type="button"
+                  onClick={() => setShowAddAddress(false)}
+                  className="flex-1 py-2 bg-slate-200 text-slate-800 rounded-xl text-xs font-semibold"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  disabled={isSavingAddress}
+                  className="flex-1 py-2 bg-blue-600 text-white rounded-xl text-xs font-bold shadow-xs"
+                >
+                  {isSavingAddress ? 'Saving...' : 'Save Address'}
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
+
+      {/* ==================== MODAL: DELETE ACCOUNT ==================== */}
+      {showDeleteModal && (
+        <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4">
+          <div className="bg-white w-full max-w-sm rounded-3xl p-5 shadow-2xl border border-red-200 space-y-4">
+            <div className="text-center">
+              <div className="w-12 h-12 bg-red-100 text-red-600 rounded-full flex items-center justify-center mx-auto mb-2">
+                <AlertTriangle className="w-6 h-6" />
+              </div>
+              <h3 className="font-bold text-slate-900 text-base">Confirm Account Deletion</h3>
+              <p className="text-xs text-slate-500 mt-1">
+                This action cannot be undone. All active requests and address records will be wiped.
+              </p>
+            </div>
+
+            <div>
+              <label className="block text-xs font-bold text-slate-800 mb-1">
+                Type <span className="text-red-600 font-extrabold">DELETE</span> to confirm:
+              </label>
+              <input
+                type="text"
+                value={deleteConfirmationText}
+                onChange={(e) => setDeleteConfirmationText(e.target.value)}
+                placeholder="DELETE"
+                className="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-xl text-xs text-slate-900 font-bold"
+              />
+            </div>
+
+            <div className="flex gap-2">
+              <button
+                type="button"
+                onClick={() => setShowDeleteModal(false)}
+                className="flex-1 py-2 bg-slate-200 text-slate-800 rounded-xl text-xs font-semibold"
+              >
+                Cancel
+              </button>
+              <button
+                type="button"
+                onClick={handleDeleteAccount}
+                disabled={isDeletingAccount || deleteConfirmationText !== 'DELETE'}
+                className="flex-1 py-2 bg-red-600 text-white rounded-xl text-xs font-bold disabled:opacity-50"
+              >
+                {isDeletingAccount ? 'Deleting...' : 'Permanently Delete'}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+    </div>
+  );
+};
