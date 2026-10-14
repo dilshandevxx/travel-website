@@ -309,3 +309,362 @@ export const CustomerSettings: React.FC<Props> = ({ onBack, initialSubView = 'ma
                 <ChevronRight className="w-4 h-4 text-slate-400" />
               </button>
             </div>
+
+            {/* Notifications Card */}
+            <div className="bg-white rounded-2xl border border-slate-200 shadow-xs divide-y divide-slate-100 overflow-hidden">
+              <div className="px-4 py-2.5 bg-slate-50 text-[10px] font-bold text-slate-400 uppercase tracking-wider">
+                Notifications
+              </div>
+
+              <button
+                onClick={() => setActiveSubView('notifications')}
+                className="w-full px-4 py-3 flex items-center justify-between text-left hover:bg-slate-50 transition"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="p-2 rounded-xl bg-amber-50 text-amber-600">
+                    <Bell className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <span className="text-xs font-bold text-slate-900 block">Notification Preferences</span>
+                    <span className="text-[11px] text-slate-500">Job alerts, technician arrival & promotions</span>
+                  </div>
+                </div>
+                <ChevronRight className="w-4 h-4 text-slate-400" />
+              </button>
+            </div>
+
+            {/* App Preferences Card */}
+            <div className="bg-white rounded-2xl border border-slate-200 shadow-xs divide-y divide-slate-100 overflow-hidden">
+              <div className="px-4 py-2.5 bg-slate-50 text-[10px] font-bold text-slate-400 uppercase tracking-wider">
+                Preferences
+              </div>
+
+              <button
+                onClick={() => setActiveSubView('preferences')}
+                className="w-full px-4 py-3 flex items-center justify-between text-left hover:bg-slate-50 transition"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="p-2 rounded-xl bg-teal-50 text-teal-600">
+                    <Globe className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <span className="text-xs font-bold text-slate-900 block">Language & Theme</span>
+                    <span className="text-[11px] text-slate-500">English / Sinhala / Tamil, theme & font size</span>
+                  </div>
+                </div>
+                <ChevronRight className="w-4 h-4 text-slate-400" />
+              </button>
+            </div>
+
+            {/* Support & Privacy */}
+            <div className="bg-white rounded-2xl border border-slate-200 shadow-xs divide-y divide-slate-100 overflow-hidden">
+              <div className="px-4 py-2.5 bg-slate-50 text-[10px] font-bold text-slate-400 uppercase tracking-wider">
+                Support & Legal
+              </div>
+
+              <button
+                onClick={() => setActiveSubView('faq')}
+                className="w-full px-4 py-3 flex items-center justify-between text-left hover:bg-slate-50 transition"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="p-2 rounded-xl bg-indigo-50 text-indigo-600">
+                    <HelpCircle className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <span className="text-xs font-bold text-slate-900 block">Help Centre & FAQs</span>
+                    <span className="text-[11px] text-slate-500">Pricing rules, callout policy & emergency help</span>
+                  </div>
+                </div>
+                <ChevronRight className="w-4 h-4 text-slate-400" />
+              </button>
+
+              <button
+                onClick={() => setActiveSubView('privacy')}
+                className="w-full px-4 py-3 flex items-center justify-between text-left hover:bg-slate-50 transition"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="p-2 rounded-xl bg-slate-100 text-slate-600">
+                    <Shield className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <span className="text-xs font-bold text-slate-900 block">Privacy Policy & Terms</span>
+                    <span className="text-[11px] text-slate-500">Sri Lanka home-services terms of use</span>
+                  </div>
+                </div>
+                <ChevronRight className="w-4 h-4 text-slate-400" />
+              </button>
+            </div>
+
+            {/* App Version Info */}
+            <div className="pt-2 text-center text-slate-400 text-[11px] space-y-0.5">
+              <p className="font-semibold text-slate-500">HelpDesk Sri Lanka • v2.4.0 (Build 2026.10)</p>
+              <p>Designed for Colombo, Kandy, Gampaha & Galle</p>
+            </div>
+          </div>
+        )}
+
+        {/* ==================== SUBVIEW: ACCOUNT & SECURITY ==================== */}
+        {activeSubView === 'account' && (
+          <div className="space-y-4">
+            
+            {/* Edit Personal Info Form */}
+            <form onSubmit={handleSaveProfile} className="bg-white p-4 rounded-2xl border border-slate-200 shadow-xs space-y-3">
+              <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wider">
+                Personal Information
+              </h4>
+
+              <div>
+                <label className="block text-xs font-bold text-slate-800 mb-1">Full Name</label>
+                <input
+                  type="text"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  required
+                  className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-900"
+                />
+              </div>
+
+              <div>
+                <label className="block text-xs font-bold text-slate-800 mb-1">Phone Number (+94)</label>
+                <input
+                  type="text"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                  required
+                  className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-900"
+                />
+              </div>
+
+              <div>
+                <label className="block text-xs font-bold text-slate-800 mb-1">Email Address (Read-only)</label>
+                <input
+                  type="email"
+                  value={user?.email || ''}
+                  disabled
+                  className="w-full px-3 py-2 bg-slate-100 border border-slate-200 rounded-xl text-xs text-slate-500 cursor-not-allowed"
+                />
+              </div>
+
+              <ActionButton
+                type="submit"
+                isLoading={isSavingProfile}
+                loadingLabel="Saving changes..."
+                label="Save Profile Changes"
+                variant="primary"
+                size="md"
+              />
+            </form>
+
+            {/* Change Password Form */}
+            <form onSubmit={handleChangePassword} className="bg-white p-4 rounded-2xl border border-slate-200 shadow-xs space-y-3">
+              <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wider">
+                Account Security & Password
+              </h4>
+
+              <div>
+                <label className="block text-xs font-bold text-slate-800 mb-1">Current Password</label>
+                <input
+                  type="password"
+                  value={currentPassword}
+                  onChange={(e) => setCurrentPassword(e.target.value)}
+                  required
+                  placeholder="••••••••"
+                  className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-900"
+                />
+              </div>
+
+              <div>
+                <label className="block text-xs font-bold text-slate-800 mb-1">New Password</label>
+                <input
+                  type="password"
+                  value={newPassword}
+                  onChange={(e) => setNewPassword(e.target.value)}
+                  required
+                  placeholder="Min 6 characters"
+                  className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-900"
+                />
+              </div>
+
+              <div>
+                <label className="block text-xs font-bold text-slate-800 mb-1">Confirm New Password</label>
+                <input
+                  type="password"
+                  value={confirmPassword}
+                  onChange={(e) => setConfirmPassword(e.target.value)}
+                  required
+                  placeholder="••••••••"
+                  className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-900"
+                />
+              </div>
+
+              <ActionButton
+                type="submit"
+                isLoading={isChangingPass}
+                loadingLabel="Updating password..."
+                label="Update Password"
+                variant="secondary"
+                size="md"
+              />
+            </form>
+
+            {/* Manage Saved Addresses */}
+            <div className="bg-white p-4 rounded-2xl border border-slate-200 shadow-xs space-y-3">
+              <div className="flex items-center justify-between">
+                <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wider">
+                  Saved Service Addresses ({addresses.length})
+                </h4>
+                <button
+                  onClick={() => setShowAddAddress(true)}
+                  className="text-xs font-bold text-blue-600 hover:text-blue-800 flex items-center gap-1"
+                >
+                  <Plus className="w-3.5 h-3.5" />
+                  Add Address
+                </button>
+              </div>
+
+              <div className="space-y-2">
+                {addresses.map((a) => (
+                  <div
+                    key={a.id}
+                    className="p-3 bg-slate-50 rounded-xl border border-slate-200 flex items-start justify-between gap-2"
+                  >
+                    <div>
+                      <div className="flex items-center gap-2">
+                        <span className="text-xs font-bold text-slate-900">{a.label}</span>
+                        {a.isDefault && (
+                          <span className="text-[10px] bg-blue-100 text-blue-800 px-1.5 py-0.2 rounded-md font-bold">
+                            Default
+                          </span>
+                        )}
+                      </div>
+                      <p className="text-xs text-slate-600 mt-0.5">{a.addressLine}</p>
+                      <span className="text-[11px] text-slate-400">{a.city}, {a.district}</span>
+                    </div>
+
+                    <div className="flex items-center gap-2">
+                      {!a.isDefault && (
+                        <button
+                          onClick={() => handleSetDefaultAddress(a.id)}
+                          className="text-[11px] text-blue-600 font-bold hover:underline"
+                        >
+                          Make Default
+                        </button>
+                      )}
+                      <button
+                        onClick={() => handleDeleteAddress(a.id)}
+                        className="p-1 text-slate-400 hover:text-red-600"
+                        title="Remove address"
+                      >
+                        <Trash2 className="w-3.5 h-3.5" />
+                      </button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Delete Account Danger Zone */}
+            <div className="bg-red-50 p-4 rounded-2xl border border-red-200 space-y-2">
+              <h4 className="text-xs font-bold text-red-900 uppercase tracking-wider">
+                Danger Zone
+              </h4>
+              <p className="text-xs text-red-700 leading-relaxed">
+                Permanently delete your HelpDesk account, booking history, and stored preferences.
+              </p>
+              <button
+                onClick={() => setShowDeleteModal(true)}
+                className="px-3.5 py-2 bg-red-600 hover:bg-red-700 text-white rounded-xl text-xs font-bold shadow-xs transition"
+              >
+                Request Account Deletion
+              </button>
+            </div>
+
+          </div>
+        )}
+
+        {/* ==================== SUBVIEW: NOTIFICATION PREFERENCES ==================== */}
+        {activeSubView === 'notifications' && (
+          <div className="space-y-4">
+            
+            {/* Push notification banner */}
+            <div className="bg-blue-50 border border-blue-200 p-3 rounded-2xl flex items-start gap-2.5 text-xs text-blue-900">
+              <Info className="w-4 h-4 text-blue-600 shrink-0 mt-0.5" />
+              <div>
+                <strong className="font-bold">In-App Notifications Active: </strong>
+                Foreground booking alerts and radar updates update in real-time. Background device push notifications require device FCM credentials.
+              </div>
+            </div>
+
+            <div className="bg-white rounded-2xl border border-slate-200 shadow-xs divide-y divide-slate-100 overflow-hidden text-xs">
+              
+              <div className="p-3.5 flex items-center justify-between">
+                <div>
+                  <span className="font-bold text-slate-900 block">Booking Status Updates</span>
+                  <span className="text-[11px] text-slate-500">Receive alerts when status changes to Accepted or In-Progress</span>
+                </div>
+                <input
+                  type="checkbox"
+                  checked={notifPrefs.bookingStatus}
+                  onChange={() => handleToggleNotifPref('bookingStatus')}
+                  className="w-4 h-4 text-blue-600 rounded"
+                />
+              </div>
+
+              <div className="p-3.5 flex items-center justify-between">
+                <div>
+                  <span className="font-bold text-slate-900 block">Technician Arrival Alerts</span>
+                  <span className="text-[11px] text-slate-500">Notifies when provider taps 'On The Way' or 'Arrived'</span>
+                </div>
+                <input
+                  type="checkbox"
+                  checked={notifPrefs.providerArrival}
+                  onChange={() => handleToggleNotifPref('providerArrival')}
+                  className="w-4 h-4 text-blue-600 rounded"
+                />
+              </div>
+
+              <div className="p-3.5 flex items-center justify-between">
+                <div>
+                  <span className="font-bold text-slate-900 block">Completion & Review Reminders</span>
+                  <span className="text-[11px] text-slate-500">Prompt to inspect completed repairs and rate technician</span>
+                </div>
+                <input
+                  type="checkbox"
+                  checked={notifPrefs.completionAndReview}
+                  onChange={() => handleToggleNotifPref('completionAndReview')}
+                  className="w-4 h-4 text-blue-600 rounded"
+                />
+              </div>
+
+              <div className="p-3.5 flex items-center justify-between">
+                <div>
+                  <span className="font-bold text-slate-900 block">Promotions & Home Tips</span>
+                  <span className="text-[11px] text-slate-500">Seasonal AC servicing reminders & plumbing safety tips</span>
+                </div>
+                <input
+                  type="checkbox"
+                  checked={notifPrefs.promotions}
+                  onChange={() => handleToggleNotifPref('promotions')}
+                  className="w-4 h-4 text-blue-600 rounded"
+                />
+              </div>
+
+              <div className="p-3.5 flex items-center justify-between">
+                <div>
+                  <span className="font-bold text-slate-900 block">In-App Notification Center Badge</span>
+                  <span className="text-[11px] text-slate-500">Display unread badge counter in header navigation</span>
+                </div>
+                <input
+                  type="checkbox"
+                  checked={notifPrefs.inAppAlerts}
+                  onChange={() => handleToggleNotifPref('inAppAlerts')}
+                  className="w-4 h-4 text-blue-600 rounded"
+                />
+              </div>
+            </div>
+
+            <p className="text-[11px] text-slate-400 text-center">
+              Changes are saved instantly and synchronized across devices.
+            </p>
+          </div>
+        )}
