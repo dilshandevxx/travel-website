@@ -1,0 +1,7 @@
+{
+  "name": "@pixelpioneers/provider-app",
+  "version": "0.1.0",
+  "private": true,
+  "description": "React Native mobile app for service providers of the On-Demand Skilled Services Platform",
+  "license": "UNLICENSED"
+}

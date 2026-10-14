@@ -1,0 +1,43 @@
+{
+  "name": "helpdesk",
+  "version": "1.0.0",
+  "private": true,
+  "description": "HelpDesk - on-demand home-services platform for Sri Lanka (customer app, provider app and admin dashboard in one simulator)",
+  "license": "UNLICENSED",
+  "type": "module",
+  "engines": {
+    "node": ">=20.19"
+  },
+  "scripts": {
+    "dev": "tsx watch --clear-screen=false server.ts",
+    "build": "vite build",
+    "start": "cross-env NODE_ENV=production tsx server.ts",
+    "preview": "npm run build && npm run start",
+    "lint": "tsc --noEmit",
+    "typecheck": "tsc --noEmit",
+    "db:reset": "tsx src/server/db.ts --reset",
+    "test:e2e": "node test-e2e.js"
+  },
+  "dependencies": {
+    "@google/genai": "^2.29.1",
+    "@tailwindcss/vite": "^4.3.3",
+    "@vitejs/plugin-react": "^6.1.2",
+    "dotenv": "^17.2.3",
+    "express": "^5.3.0",
+    "lucide-react": "^1.57.0",
+    "motion": "^14.2.0",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "tailwindcss": "^4.3.3",
+    "tsx": "^4.23.15",
+    "vite": "^8.3.4"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/node": "^24.10.1",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "cross-env": "^10.1.0",
+    "typescript": "~6.0.3"
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "name": "HelpDesk",
+  "description": "On-demand home-services platform for Sri Lanka. Customers book verified plumbers, electricians and other tradespeople, providers accept and complete jobs, and admins verify providers and resolve complaints. Customer app, provider app and admin dashboard run side by side in one simulator.",
+  "requestFramePermissions": []
+}

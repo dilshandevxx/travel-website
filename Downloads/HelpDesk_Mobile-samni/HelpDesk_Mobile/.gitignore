@@ -1,0 +1,28 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+build/
+*.tsbuildinfo
+
+# Environment files (commit only .env.example)
+.env
+.env.*
+!.env.example
+
+# Local database copies (data/helpdesk-db.json is the committed seed)
+data/*.tmp
+data/*.local.json
+
+# Logs
+*.log
+npm-debug.log*
+
+# Editors / OS
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.DS_Store
+Thumbs.db
+Desktop.ini

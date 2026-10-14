@@ -1,0 +1,17 @@
+{
+  "expo": {
+    "name": "HelpDesk Pro",
+    "slug": "helpdesk-provider-mobile",
+    "scheme": "helpdesk-provider",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "automatic",
+    "plugins": ["expo-router"],
+    "ios": {
+      "bundleIdentifier": "lk.helpdesk.provider"
+    },
+    "android": {
+      "package": "lk.helpdesk.provider"
+    }
+  }
+}

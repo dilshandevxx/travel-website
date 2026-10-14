@@ -1,0 +1,13 @@
+export const SERVICE_STATUS = {
+  PENDING: 'PENDING',
+  ACCEPTED: 'ACCEPTED',
+  ON_THE_WAY: 'ON_THE_WAY',
+  IN_PROGRESS: 'IN_PROGRESS',
+  COMPLETED: 'COMPLETED',
+  CANCELLED: 'CANCELLED',
+};
+
+export const URGENCY_LEVEL = {
+  NORMAL: 'Normal',
+  EMERGENCY: 'Emergency',
+};

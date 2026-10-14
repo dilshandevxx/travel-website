@@ -1,0 +1,48 @@
+{
+  "$comment": "Project map with owners (M1-M4). Informational only: npm workspaces in package.json are what actually wire the monorepo. See docs/OWNERSHIP.md.",
+  "version": 1,
+  "projects": {
+    "customer-mobile": {
+      "root": "apps/customer-mobile",
+      "package": "@helpdesk/customer-mobile",
+      "type": "expo-app",
+      "owner": "M1"
+    },
+    "provider-mobile": {
+      "root": "apps/provider-mobile",
+      "package": "@helpdesk/provider-mobile",
+      "type": "expo-app",
+      "owner": "M2"
+    },
+    "admin-web": {
+      "root": "apps/admin-web",
+      "package": "@helpdesk/admin-web",
+      "type": "vite-app",
+      "owner": "M4"
+    },
+    "backend": {
+      "root": "backend",
+      "package": "@helpdesk/backend",
+      "type": "node-api",
+      "owner": "M4"
+    },
+    "shared": {
+      "root": "packages/shared",
+      "package": "@helpdesk/shared",
+      "type": "library",
+      "owner": "M3"
+    },
+    "e2e": {
+      "root": "e2e",
+      "package": "@helpdesk/e2e",
+      "type": "tests",
+      "owner": "M2"
+    }
+  },
+  "members": {
+    "M1": "Customer App",
+    "M2": "Provider App, Onboarding & Tests",
+    "M3": "Tracking, Messaging, AI & Shared",
+    "M4": "Admin, Auth & Database"
+  }
+}

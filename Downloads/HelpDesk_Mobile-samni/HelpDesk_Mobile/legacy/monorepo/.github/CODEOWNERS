@@ -1,0 +1,44 @@
+# HelpDesk code owners. Replace @member1..@member4 with real GitHub usernames.
+# The LAST matching line wins, so general rules come first and specific ones after.
+# M1 = @member1 Customer App | M2 = @member2 Provider App, Onboarding & Tests
+# M3 = @member3 Tracking, Messaging, AI & Shared | M4 = @member4 Admin, Auth & Database
+# Full matrix: docs/OWNERSHIP.md
+
+# ---------- Member 4: repo setup, backend core, database, auth, admin web ----------
+*                                                       @member4
+/backend/                                               @member4
+/apps/admin-web/                                        @member4
+
+# ---------- Member 3: shared package (auth context inside it stays with Member 4) ----------
+/packages/shared/                                       @member3
+/packages/shared/src/auth/                              @member4
+
+# ---------- Member 1: customer app + customer-facing API modules ----------
+/apps/customer-mobile/                                  @member1
+/backend/src/modules/users/                             @member1
+/backend/src/modules/catalog/                           @member1
+/backend/src/modules/bookings/                          @member1
+
+# ---------- Member 2: provider app, onboarding/login screens, e2e ----------
+/apps/provider-mobile/                                  @member2
+/apps/customer-mobile/app/_layout.tsx                   @member2
+/apps/customer-mobile/app/index.tsx                     @member2
+/apps/customer-mobile/app/(auth)/                       @member2
+/backend/src/modules/provider/                          @member2
+/backend/src/modules/jobs/                              @member2
+/e2e/                                                   @member2
+
+# ---------- Member 3: tracking, chat, reviews, complaints, notifications, AI ----------
+/backend/src/modules/tracking/                          @member3
+/backend/src/modules/messages/                          @member3
+/backend/src/modules/reviews/                           @member3
+/backend/src/modules/complaints/                        @member3
+/backend/src/modules/notifications/                     @member3
+/backend/src/modules/ai/                                @member3
+/apps/customer-mobile/app/ai-triage.tsx                 @member3
+/apps/customer-mobile/app/notifications.tsx             @member3
+/apps/customer-mobile/app/booking/[id]/                 @member3
+/apps/customer-mobile/src/components/StatusStepper.tsx  @member3
+/apps/customer-mobile/src/lib/                          @member3
+/apps/provider-mobile/app/notifications.tsx             @member3
+/apps/provider-mobile/app/job/[id]/chat.tsx             @member3

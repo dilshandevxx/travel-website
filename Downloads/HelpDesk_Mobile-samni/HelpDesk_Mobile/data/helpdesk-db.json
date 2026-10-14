@@ -1,0 +1,680 @@
+{
+  "version": 1,
+  "counters": {
+    "categories": 10,
+    "pricingRules": 10,
+    "users": 8,
+    "addresses": 2,
+    "providerProfiles": 5,
+    "serviceRequests": 3,
+    "statusHistory": 9,
+    "reviews": 1,
+    "messages": 1,
+    "notifications": 1
+  },
+  "users": [
+    {
+      "id": 1,
+      "fullName": "Ayesha Fernando",
+      "email": "admin@helpdesk.lk",
+      "phone": "+94 11 234 5678",
+      "role": "ADMIN",
+      "isActive": true,
+      "avatarColor": "#2563eb",
+      "createdAt": "2026-10-01T08:00:00.000Z",
+      "passwordHash": "scrypt$3cf6c2335bd9a366b626b899ee67f356$84d7713a62b305ea7806af8685bc3e5ff75b4af185a0ed2fc8cc62cae70e8f92"
+    },
+    {
+      "id": 2,
+      "fullName": "Nimal Perera",
+      "email": "nimal@example.com",
+      "phone": "+94 71 234 5678",
+      "role": "CUSTOMER",
+      "isActive": true,
+      "avatarColor": "#16a34a",
+      "createdAt": "2026-10-01T08:00:00.000Z",
+      "passwordHash": "scrypt$8714120648c29c6c4555846dbd0686e7$e0517705cf5d4d04c62ec31d43109d76a1b9b0fbfb8387e54d87975019302a93"
+    },
+    {
+      "id": 3,
+      "fullName": "Shanika Jayawardena",
+      "email": "shanika@example.com",
+      "phone": "+94 76 555 1020",
+      "role": "CUSTOMER",
+      "isActive": true,
+      "avatarColor": "#db2777",
+      "createdAt": "2026-10-01T08:00:00.000Z",
+      "passwordHash": "scrypt$f3f5b441b2e830568d80f054033db7a5$c0a6494993bec7cea604e238b08912026602a75eee78d0730da76f00ac75fec7"
+    },
+    {
+      "id": 4,
+      "fullName": "Kamal Silva",
+      "email": "kamal@example.com",
+      "phone": "+94 77 765 4321",
+      "role": "PROVIDER",
+      "isActive": true,
+      "avatarColor": "#ea580c",
+      "createdAt": "2026-10-01T08:00:00.000Z",
+      "passwordHash": "scrypt$49f20aa1e0ef439add532a01d8a554b9$c52fcad56e306e58deea4f9e43d02e3b592caa9f3953be0eeec6ecea2b9cf813"
+    },
+    {
+      "id": 5,
+      "fullName": "Sunil Bandara",
+      "email": "sunil@example.com",
+      "phone": "+94 71 998 1122",
+      "role": "PROVIDER",
+      "isActive": true,
+      "avatarColor": "#7c3aed",
+      "createdAt": "2026-10-01T08:00:00.000Z",
+      "passwordHash": "scrypt$ce39cca135e058197abcf4f611c69634$ec608a5b3e215194d91da81ef6b5f3f675d593445c6deb3cfe4c6b618f38f8cb"
+    },
+    {
+      "id": 6,
+      "fullName": "Ruwan Wijesinghe",
+      "email": "ruwan@example.com",
+      "phone": "+94 75 410 7788",
+      "role": "PROVIDER",
+      "isActive": true,
+      "avatarColor": "#0891b2",
+      "createdAt": "2026-10-01T08:00:00.000Z",
+      "passwordHash": "scrypt$584b02863da6994e5586fca69fc4df6c$8dfcc37fbccdb366c696b3ef3495be37f20e693092b6794d74c452496be004d9"
+    },
+    {
+      "id": 7,
+      "fullName": "Priya Rathnayake",
+      "email": "priya@example.com",
+      "phone": "+94 70 222 3344",
+      "role": "PROVIDER",
+      "isActive": true,
+      "avatarColor": "#ca8a04",
+      "createdAt": "2026-10-01T08:00:00.000Z",
+      "passwordHash": "scrypt$215f31de98150f4892135d01296aa091$b3b2c4ed43ca257dd317a8b87cc1e738f17f027a5b8c897e198b5f83132a5c3d"
+    },
+    {
+      "id": 8,
+      "fullName": "Dinesh Kumara",
+      "email": "dinesh@example.com",
+      "phone": "+94 72 345 6677",
+      "role": "PROVIDER",
+      "isActive": true,
+      "avatarColor": "#2563eb",
+      "createdAt": "2026-10-01T08:00:00.000Z",
+      "passwordHash": "scrypt$950ad375465a12b4b620b81d51665d66$c4f24abaf81dea344bc9a8a1a75be5c73e66b9c159a8e0dba214099f2525cdec"
+    }
+  ],
+  "userSettings": [
+    {
+      "userId": 1,
+      "notifications": {
+        "bookingUpdates": true,
+        "messages": true,
+        "promotions": false
+      },
+      "language": "en"
+    },
+    {
+      "userId": 2,
+      "notifications": {
+        "bookingUpdates": true,
+        "messages": true,
+        "promotions": false
+      },
+      "language": "en"
+    },
+    {
+      "userId": 3,
+      "notifications": {
+        "bookingUpdates": true,
+        "messages": true,
+        "promotions": false
+      },
+      "language": "en"
+    },
+    {
+      "userId": 4,
+      "notifications": {
+        "bookingUpdates": true,
+        "messages": true,
+        "promotions": false
+      },
+      "language": "en"
+    },
+    {
+      "userId": 5,
+      "notifications": {
+        "bookingUpdates": true,
+        "messages": true,
+        "promotions": false
+      },
+      "language": "en"
+    },
+    {
+      "userId": 6,
+      "notifications": {
+        "bookingUpdates": true,
+        "messages": true,
+        "promotions": false
+      },
+      "language": "en"
+    },
+    {
+      "userId": 7,
+      "notifications": {
+        "bookingUpdates": true,
+        "messages": true,
+        "promotions": false
+      },
+      "language": "en"
+    },
+    {
+      "userId": 8,
+      "notifications": {
+        "bookingUpdates": true,
+        "messages": true,
+        "promotions": false
+      },
+      "language": "en"
+    }
+  ],
+  "addresses": [
+    {
+      "id": 1,
+      "userId": 2,
+      "label": "Home",
+      "line1": "12 Flower Road, Colombo 07",
+      "city": "Colombo",
+      "district": "Colombo",
+      "latitude": 6.9105,
+      "longitude": 79.8635,
+      "isDefault": true
+    },
+    {
+      "id": 2,
+      "userId": 3,
+      "label": "Home",
+      "line1": "45 Stanley Thilakaratne Mw",
+      "city": "Nugegoda",
+      "district": "Colombo",
+      "latitude": 6.8721,
+      "longitude": 79.889,
+      "isDefault": true
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "slug": "plumbing",
+      "name": "Plumbing",
+      "description": "Leaks, blocked drains, taps, water tanks and pumps",
+      "isActive": true
+    },
+    {
+      "id": 2,
+      "slug": "electrical",
+      "name": "Electrical",
+      "description": "Wiring, sockets, breakers, lights and fans",
+      "isActive": true
+    },
+    {
+      "id": 3,
+      "slug": "ac-refrigeration",
+      "name": "AC & Refrigeration",
+      "description": "AC servicing, gas refills, fridge and freezer repair",
+      "isActive": true
+    },
+    {
+      "id": 4,
+      "slug": "carpentry",
+      "name": "Carpentry",
+      "description": "Doors, windows, cupboards and furniture repair",
+      "isActive": true
+    },
+    {
+      "id": 5,
+      "slug": "masonry",
+      "name": "Masonry",
+      "description": "Walls, tiling, plastering and small construction",
+      "isActive": true
+    },
+    {
+      "id": 6,
+      "slug": "painting",
+      "name": "Painting",
+      "description": "Interior and exterior painting, waterproofing",
+      "isActive": true
+    },
+    {
+      "id": 7,
+      "slug": "appliance-repair",
+      "name": "Appliance Repair",
+      "description": "Washing machines, ovens, TVs and small appliances",
+      "isActive": true
+    },
+    {
+      "id": 8,
+      "slug": "cleaning",
+      "name": "Cleaning",
+      "description": "Home deep-cleaning, sofas, carpets and move-out cleans",
+      "isActive": true
+    },
+    {
+      "id": 9,
+      "slug": "gardening",
+      "name": "Gardening",
+      "description": "Lawn care, hedge trimming, planting and landscaping",
+      "isActive": true
+    },
+    {
+      "id": 10,
+      "slug": "other",
+      "name": "Other",
+      "description": "Anything else around the house",
+      "isActive": true
+    }
+  ],
+  "pricingRules": [
+    {
+      "id": 1,
+      "categoryId": 1,
+      "baseFee": 1500,
+      "minHourlyRate": 1200,
+      "maxHourlyRate": 2500,
+      "updatedAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": 2,
+      "categoryId": 2,
+      "baseFee": 1500,
+      "minHourlyRate": 1200,
+      "maxHourlyRate": 2800,
+      "updatedAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": 3,
+      "categoryId": 3,
+      "baseFee": 2500,
+      "minHourlyRate": 1800,
+      "maxHourlyRate": 3500,
+      "updatedAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": 4,
+      "categoryId": 4,
+      "baseFee": 1500,
+      "minHourlyRate": 1200,
+      "maxHourlyRate": 2500,
+      "updatedAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": 5,
+      "categoryId": 5,
+      "baseFee": 2000,
+      "minHourlyRate": 1500,
+      "maxHourlyRate": 3000,
+      "updatedAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": 6,
+      "categoryId": 6,
+      "baseFee": 2000,
+      "minHourlyRate": 1300,
+      "maxHourlyRate": 2500,
+      "updatedAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": 7,
+      "categoryId": 7,
+      "baseFee": 2000,
+      "minHourlyRate": 1500,
+      "maxHourlyRate": 3000,
+      "updatedAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": 8,
+      "categoryId": 8,
+      "baseFee": 1000,
+      "minHourlyRate": 800,
+      "maxHourlyRate": 1500,
+      "updatedAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": 9,
+      "categoryId": 9,
+      "baseFee": 1000,
+      "minHourlyRate": 800,
+      "maxHourlyRate": 1500,
+      "updatedAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": 10,
+      "categoryId": 10,
+      "baseFee": 1500,
+      "minHourlyRate": 1000,
+      "maxHourlyRate": 2500,
+      "updatedAt": "2026-10-01T08:00:00.000Z"
+    }
+  ],
+  "providerProfiles": [
+    {
+      "id": 1,
+      "userId": 4,
+      "status": "APPROVED",
+      "bio": "Ten years fixing pipes, pumps and water tanks across Colombo.",
+      "yearsOfExperience": 10,
+      "categoryIds": [
+        1
+      ],
+      "hourlyRate": 1800,
+      "city": "Dehiwala",
+      "latitude": 6.8511,
+      "longitude": 79.8659,
+      "isAvailable": true,
+      "nicNumber": "198512345678",
+      "averageRating": 4.8,
+      "totalReviews": 23,
+      "completedJobs": 41,
+      "verificationNote": null,
+      "submittedAt": "2026-10-01T08:00:00.000Z",
+      "verifiedAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": 2,
+      "userId": 5,
+      "status": "APPROVED",
+      "bio": "Licensed electrician. House wiring, DB boards, inverters and solar.",
+      "yearsOfExperience": 8,
+      "categoryIds": [
+        2
+      ],
+      "hourlyRate": 2000,
+      "city": "Rajagiriya",
+      "latitude": 6.91,
+      "longitude": 79.895,
+      "isAvailable": true,
+      "nicNumber": "198798765432",
+      "averageRating": 4.6,
+      "totalReviews": 17,
+      "completedJobs": 29,
+      "verificationNote": null,
+      "submittedAt": "2026-10-01T08:00:00.000Z",
+      "verifiedAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": 3,
+      "userId": 6,
+      "status": "APPROVED",
+      "bio": "AC installation and servicing, fridge and washing machine repairs.",
+      "yearsOfExperience": 6,
+      "categoryIds": [
+        3,
+        7
+      ],
+      "hourlyRate": 2500,
+      "city": "Colombo",
+      "latitude": 6.9271,
+      "longitude": 79.8612,
+      "isAvailable": true,
+      "nicNumber": "199011223344",
+      "averageRating": 4.7,
+      "totalReviews": 12,
+      "completedJobs": 20,
+      "verificationNote": null,
+      "submittedAt": "2026-10-01T08:00:00.000Z",
+      "verifiedAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": 4,
+      "userId": 7,
+      "status": "APPROVED",
+      "bio": "Deep cleaning and garden care. Eco-friendly products on request.",
+      "yearsOfExperience": 4,
+      "categoryIds": [
+        8,
+        9
+      ],
+      "hourlyRate": 1200,
+      "city": "Mount Lavinia",
+      "latitude": 6.839,
+      "longitude": 79.865,
+      "isAvailable": true,
+      "nicNumber": "199455667788",
+      "averageRating": 4.9,
+      "totalReviews": 31,
+      "completedJobs": 52,
+      "verificationNote": null,
+      "submittedAt": "2026-10-01T08:00:00.000Z",
+      "verifiedAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": 5,
+      "userId": 8,
+      "status": "PENDING_VERIFICATION",
+      "bio": "Carpenter and painter. Custom cupboards, doors and repainting.",
+      "yearsOfExperience": 5,
+      "categoryIds": [
+        4,
+        6
+      ],
+      "hourlyRate": 1600,
+      "city": "Nugegoda",
+      "latitude": 6.8649,
+      "longitude": 79.8997,
+      "isAvailable": false,
+      "nicNumber": "199233445566",
+      "averageRating": 0,
+      "totalReviews": 0,
+      "completedJobs": 0,
+      "verificationNote": null,
+      "submittedAt": "2026-10-01T08:00:00.000Z",
+      "verifiedAt": null
+    }
+  ],
+  "serviceRequests": [
+    {
+      "id": 1,
+      "requestedProviderId": null,
+      "providerId": 4,
+      "address": "12 Flower Road, Colombo 07",
+      "city": "Colombo",
+      "latitude": 6.9105,
+      "longitude": 79.8635,
+      "preferredDate": null,
+      "urgency": "NORMAL",
+      "estimatedCost": 1500,
+      "finalCost": 4500,
+      "aiSummary": null,
+      "cancellationReason": null,
+      "cancelledById": null,
+      "createdAt": "2026-10-05T03:10:00.000Z",
+      "updatedAt": "2026-10-05T07:45:00.000Z",
+      "acceptedAt": "2026-10-05T03:14:00.000Z",
+      "onTheWayAt": "2026-10-05T04:00:00.000Z",
+      "startedAt": "2026-10-05T04:40:00.000Z",
+      "invoicedAt": "2026-10-05T07:30:00.000Z",
+      "completedAt": "2026-10-05T07:45:00.000Z",
+      "cancelledAt": null,
+      "customerId": 2,
+      "categoryId": 1,
+      "title": "Kitchen sink leaking",
+      "description": "Water is leaking under the kitchen sink, the cabinet floor is wet every morning.",
+      "status": "COMPLETED"
+    },
+    {
+      "id": 2,
+      "requestedProviderId": null,
+      "providerId": null,
+      "address": "45 Stanley Thilakaratne Mw",
+      "city": "Nugegoda",
+      "latitude": 6.8721,
+      "longitude": 79.889,
+      "preferredDate": null,
+      "urgency": "URGENT",
+      "estimatedCost": 1500,
+      "finalCost": null,
+      "aiSummary": "Likely a loose or burnt socket terminal. Switch off that circuit at the breaker until it is checked.",
+      "cancellationReason": null,
+      "cancelledById": null,
+      "createdAt": "2026-10-14T02:30:00.000Z",
+      "updatedAt": "2026-10-14T02:30:00.000Z",
+      "acceptedAt": null,
+      "onTheWayAt": null,
+      "startedAt": null,
+      "invoicedAt": null,
+      "completedAt": null,
+      "cancelledAt": null,
+      "customerId": 3,
+      "categoryId": 2,
+      "title": "Power socket sparking",
+      "description": "The socket next to the fridge sparks when anything is plugged in and smells of burning.",
+      "status": "PENDING"
+    },
+    {
+      "id": 3,
+      "requestedProviderId": 6,
+      "providerId": 6,
+      "address": "12 Flower Road, Colombo 07",
+      "city": "Colombo",
+      "latitude": 6.9105,
+      "longitude": 79.8635,
+      "preferredDate": null,
+      "urgency": "NORMAL",
+      "estimatedCost": 2500,
+      "finalCost": null,
+      "aiSummary": null,
+      "cancellationReason": null,
+      "cancelledById": null,
+      "createdAt": "2026-10-14T01:00:00.000Z",
+      "updatedAt": "2026-10-14T01:20:00.000Z",
+      "acceptedAt": "2026-10-14T01:20:00.000Z",
+      "onTheWayAt": null,
+      "startedAt": null,
+      "invoicedAt": null,
+      "completedAt": null,
+      "cancelledAt": null,
+      "customerId": 2,
+      "categoryId": 3,
+      "title": "AC not cooling",
+      "description": "Bedroom AC runs but only blows warm air. Last serviced about a year ago.",
+      "status": "ACCEPTED"
+    }
+  ],
+  "statusHistory": [
+    {
+      "id": 1,
+      "serviceRequestId": 1,
+      "fromStatus": null,
+      "toStatus": "PENDING",
+      "changedById": 2,
+      "note": null,
+      "createdAt": "2026-10-05T03:10:00.000Z"
+    },
+    {
+      "id": 2,
+      "serviceRequestId": 1,
+      "fromStatus": "PENDING",
+      "toStatus": "ACCEPTED",
+      "changedById": 4,
+      "note": null,
+      "createdAt": "2026-10-05T03:14:00.000Z"
+    },
+    {
+      "id": 3,
+      "serviceRequestId": 1,
+      "fromStatus": "ACCEPTED",
+      "toStatus": "ON_THE_WAY",
+      "changedById": 4,
+      "note": null,
+      "createdAt": "2026-10-05T04:00:00.000Z"
+    },
+    {
+      "id": 4,
+      "serviceRequestId": 1,
+      "fromStatus": "ON_THE_WAY",
+      "toStatus": "IN_PROGRESS",
+      "changedById": 4,
+      "note": null,
+      "createdAt": "2026-10-05T04:40:00.000Z"
+    },
+    {
+      "id": 5,
+      "serviceRequestId": 1,
+      "fromStatus": "IN_PROGRESS",
+      "toStatus": "AWAITING_CUSTOMER_CONFIRMATION",
+      "changedById": 4,
+      "note": null,
+      "createdAt": "2026-10-05T07:30:00.000Z"
+    },
+    {
+      "id": 6,
+      "serviceRequestId": 1,
+      "fromStatus": "AWAITING_CUSTOMER_CONFIRMATION",
+      "toStatus": "COMPLETED",
+      "changedById": 2,
+      "note": null,
+      "createdAt": "2026-10-05T07:45:00.000Z"
+    },
+    {
+      "id": 7,
+      "serviceRequestId": 2,
+      "fromStatus": null,
+      "toStatus": "PENDING",
+      "changedById": 3,
+      "note": null,
+      "createdAt": "2026-10-14T02:30:00.000Z"
+    },
+    {
+      "id": 8,
+      "serviceRequestId": 3,
+      "fromStatus": null,
+      "toStatus": "PENDING",
+      "changedById": 2,
+      "note": null,
+      "createdAt": "2026-10-14T01:00:00.000Z"
+    },
+    {
+      "id": 9,
+      "serviceRequestId": 3,
+      "fromStatus": "PENDING",
+      "toStatus": "ACCEPTED",
+      "changedById": 6,
+      "note": null,
+      "createdAt": "2026-10-14T01:20:00.000Z"
+    }
+  ],
+  "costProposals": [],
+  "messages": [
+    {
+      "id": 1,
+      "serviceRequestId": 3,
+      "senderId": 6,
+      "body": "Hi Nimal, I can come this afternoon. Is the outdoor unit easy to reach?",
+      "createdAt": "2026-10-14T01:22:00.000Z"
+    }
+  ],
+  "reviews": [
+    {
+      "id": 1,
+      "serviceRequestId": 1,
+      "customerId": 2,
+      "providerId": 4,
+      "rating": 5,
+      "comment": "Arrived on time, found the cracked trap quickly and cleaned up after. Highly recommend.",
+      "providerResponse": "Thank you Nimal, happy to help any time!",
+      "createdAt": "2026-10-05T08:00:00.000Z"
+    }
+  ],
+  "complaints": [],
+  "notifications": [
+    {
+      "id": 1,
+      "userId": 2,
+      "type": "BOOKING_UPDATE",
+      "title": "Provider assigned",
+      "body": "Ruwan Wijesinghe accepted \"AC not cooling\".",
+      "serviceRequestId": 3,
+      "readAt": null,
+      "createdAt": "2026-10-14T01:20:00.000Z"
+    }
+  ],
+  "auditLogs": []
+}

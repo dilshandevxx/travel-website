@@ -1,0 +1,17 @@
+{
+  "expo": {
+    "name": "HelpDesk",
+    "slug": "helpdesk-customer-mobile",
+    "scheme": "helpdesk-customer",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "automatic",
+    "plugins": ["expo-router"],
+    "ios": {
+      "bundleIdentifier": "lk.helpdesk.customer"
+    },
+    "android": {
+      "package": "lk.helpdesk.customer"
+    }
+  }
+}

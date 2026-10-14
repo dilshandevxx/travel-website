@@ -1,0 +1,41 @@
+{
+  "name": "helpdesk",
+  "version": "0.1.0",
+  "private": true,
+  "description": "HelpDesk - on-demand home-services platform for Sri Lanka",
+  "license": "UNLICENSED",
+  "engines": {
+    "node": ">=22.12"
+  },
+  "workspaces": [
+    "packages/*",
+    "backend",
+    "apps/*",
+    "e2e"
+  ],
+  "scripts": {
+    "postinstall": "npm run build -w @helpdesk/shared",
+    "dev:backend": "npm run dev -w @helpdesk/backend",
+    "dev:admin": "npm run dev -w @helpdesk/admin-web",
+    "dev:customer": "npm run start -w @helpdesk/customer-mobile",
+    "dev:provider": "npm run start -w @helpdesk/provider-mobile",
+    "dev:shared": "npm run dev -w @helpdesk/shared",
+    "build": "npm run build -w @helpdesk/shared && npm run build -w @helpdesk/backend && npm run build -w @helpdesk/admin-web",
+    "typecheck": "npm run build -w @helpdesk/shared && npm run typecheck --workspaces --if-present",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "db:migrate": "npm run db:migrate -w @helpdesk/backend",
+    "db:seed": "npm run db:seed -w @helpdesk/backend",
+    "test:e2e": "npm run test -w @helpdesk/e2e"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.0",
+    "eslint": "^10.12.0",
+    "eslint-config-prettier": "^10.1.8",
+    "globals": "^16.4.0",
+    "prettier": "^3.9.10",
+    "typescript": "~6.0.3",
+    "typescript-eslint": "^8.71.2"
+  }
+}

@@ -1,0 +1,12 @@
+// Tells sequelize-cli where the shared database folder lives.
+// Run migration commands from inside backend/ (e.g. `npm run db:migrate`).
+const path = require('path');
+
+require('dotenv').config({ path: path.join(__dirname, '.env'), quiet: true });
+
+module.exports = {
+  config: path.resolve(__dirname, '../database/config/config.js'),
+  'migrations-path': path.resolve(__dirname, '../database/migrations'),
+  'seeders-path': path.resolve(__dirname, '../database/seeders'),
+  'models-path': path.resolve(__dirname, 'src/models'),
+};
