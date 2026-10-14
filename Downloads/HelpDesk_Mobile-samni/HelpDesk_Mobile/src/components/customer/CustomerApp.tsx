@@ -84,3 +84,65 @@ export const CustomerApp: React.FC<CustomerAppProps> = ({ initialBookingId, onCl
   const [routeStack, setRouteStack] = useState<CustomerNavigationRoute[]>([
     { name: 'HomeScreen' }
   ]);
+
+  
+  const currentRoute = routeStack[routeStack.length - 1];
+
+  // Core Data States
+  const [categories, setCategories] = useState<ServiceCategory[]>([]);
+  const [providers, setProviders] = useState<ProviderProfile[]>([]);
+  const [myBookings, setMyBookings] = useState<ServiceRequest[]>([]);
+  const [activeBooking, setActiveBooking] = useState<ServiceRequest | null>(null);
+  const [addresses, setAddresses] = useState<Address[]>([]);
+  const [notifications, setNotifications] = useState<any[]>([]);
+  const [myReviews, setMyReviews] = useState<any[]>([]);
+  const [isLoadingInitialData, setIsLoadingInitialData] = useState(true);
+
+  // Address Modal State
+  const [showAddAddressModal, setShowAddAddressModal] = useState(false);
+  const [newAddrLabel, setNewAddrLabel] = useState('Home');
+  const [newAddrLine, setNewAddrLine] = useState('');
+  const [newAddrCity, setNewAddrCity] = useState('Colombo 03');
+  const [isSavingNewAddr, setIsSavingNewAddr] = useState(false);
+
+  // Create Service Request Form States & Validation Errors
+  const [formCategory, setFormCategory] = useState<ServiceCategory | null>(null);
+  const [formTitle, setFormTitle] = useState('');
+  const [formDescription, setFormDescription] = useState('');
+  const [formUrgency, setFormUrgency] = useState<RequestUrgency>('NORMAL');
+  const [formAddress, setFormAddress] = useState('45/2 Galle Road, Kollupitiya');
+  const [formCity, setFormCity] = useState('Colombo 03');
+  const [formDate, setFormDate] = useState('2026-10-09');
+  const [formTime, setFormTime] = useState('ASAP / Next available');
+  const [formPhotoUrl, setFormPhotoUrl] = useState('');
+  const [formDirectProvider, setFormDirectProvider] = useState<ProviderProfile | null>(null);
+  const [formErrors, setFormErrors] = useState<Record<string, string>>({});
+  const [isSubmittingRequest, setIsSubmittingRequest] = useState(false);
+  const [submitErrorMessage, setSubmitErrorMessage] = useState<string | null>(null);
+  const [aiAnalyzing, setAiAnalyzing] = useState(false);
+  const [aiResult, setAiResult] = useState<any | null>(null);
+
+  // Booking History Filter State
+  const [jobsFilter, setJobsFilter] = useState<'active' | 'completed' | 'cancelled'>('active');
+
+  // Messages Chat States
+  const [chatBookingId, setChatBookingId] = useState<string | null>(null);
+  const [chatMessages, setChatMessages] = useState<any[]>([]);
+  const [chatInputText, setChatInputText] = useState('');
+  const [isSendingChat, setIsSendingChat] = useState(false);
+
+  // Home Screen Search
+  const [homeSearchQuery, setHomeSearchQuery] = useState('');
+
+  // ------------------- NAVIGATION CONTROLLER -------------------
+
+  const navigate = useCallback((screen: CustomerScreenName, params?: any) => {
+    // Normalize BookingProgress alias to BookingProgressScreen
+    const normalizedScreen = screen === 'BookingProgress' ? 'BookingProgressScreen' : screen;
+
+    const newRoute: CustomerNavigationRoute = {
+      name: normalizedScreen,
+      params
+    } as CustomerNavigationRoute;
+
+    setRouteStack(prev => {
